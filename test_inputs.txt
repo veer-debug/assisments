@@ -1,0 +1,38 @@
+# Test Inputs - Essential Test Cases for Material Order Extraction
+
+# Baseline Cases (from assignment)
+Create 25mm steel bars, 120 units for Project Phoenix, required before 15th March
+Need 350 bags of Ultratech Cement 50kg for the site Mumbai-West urgently in 7 days
+Order 12 truckloads of river sand for Bangalore Metro Phase 2 by April end
+
+# Slang/Informal Language
+Yo we need like 500 bags of cement asap for the Delhi site ya know
+Get me sum steel rods bruv, around 200 pieces, make it quick
+
+# Incomplete Data
+Need steel bars
+Order cement for Mumbai
+
+# Typos and Spelling Errors
+Need 300 baggs of cemeent for Mumbia-East urgntly in 10 dayz
+Ordr 50mm stel barrs, 150 unts for Projekt Phonix, requird before 25th Feburary
+
+# Conflicting Information
+Need 100 bags no wait make it 200 bags of cement for Mumbai site
+Order urgently but deadline is in 6 months - 500 units of steel
+
+# Ambiguous Inputs
+Need some materials for the project
+Order construction supplies soon
+
+# Unusual Units
+Get 2.5 tons of steel for the bridge construction
+Order 3 dozen bags of cement for small renovation
+
+# Complex Temporal Expressions
+Need 200 bags of cement by end of this week
+Get materials before the monsoon season
+
+# Mixed Languages
+Zarurat hai 500 bags cement Mumbai ke liye jaldi
+Need 200 बोरी cement for Delhi site urgently

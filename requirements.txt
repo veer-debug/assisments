@@ -1,0 +1,8 @@
+# Azure OpenAI SDK
+openai>=1.0.0
+
+# Note: This project uses Azure OpenAI (not regular OpenAI)
+# Make sure to set environment variables:
+# - AZURE_OPENAI_API_KEY
+# - AZURE_OPENAI_ENDPOINT
+# - AZURE_OPENAI_DEPLOYMENT (optional, defaults to "gpt-5")

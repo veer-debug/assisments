@@ -1,0 +1,192 @@
+[
+  {
+    "material_name": "25mm steel bars",
+    "quantity": 120.0,
+    "unit": "units",
+    "project_name": "Project Phoenix",
+    "location": null,
+    "urgency": "medium",
+    "deadline": "2025-03-15",
+    "input_text": "Create 25mm steel bars, 120 units for Project Phoenix, required before 15th March"
+  },
+  {
+    "material_name": "Ultratech Cement 50kg",
+    "quantity": 350.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": "Mumbai-West",
+    "urgency": "high",
+    "deadline": "2025-12-30",
+    "input_text": "Need 350 bags of Ultratech Cement 50kg for the site Mumbai-West urgently in 7 days"
+  },
+  {
+    "material_name": "river sand",
+    "quantity": 12.0,
+    "unit": "truckloads",
+    "project_name": "Bangalore Metro Phase 2",
+    "location": null,
+    "urgency": "medium",
+    "deadline": "2025-04-30",
+    "input_text": "Order 12 truckloads of river sand for Bangalore Metro Phase 2 by April end"
+  },
+  {
+    "material_name": "cement",
+    "quantity": 500.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": "Delhi",
+    "urgency": "high",
+    "deadline": null,
+    "input_text": "Yo we need like 500 bags of cement asap for the Delhi site ya know"
+  },
+  {
+    "material_name": "steel rods",
+    "quantity": 200.0,
+    "unit": "pieces",
+    "project_name": null,
+    "location": null,
+    "urgency": "high",
+    "deadline": null,
+    "input_text": "Get me sum steel rods bruv, around 200 pieces, make it quick"
+  },
+  {
+    "material_name": "steel bars",
+    "quantity": null,
+    "unit": null,
+    "project_name": null,
+    "location": null,
+    "urgency": "low",
+    "deadline": null,
+    "input_text": "Need steel bars"
+  },
+  {
+    "material_name": "cement",
+    "quantity": null,
+    "unit": null,
+    "project_name": null,
+    "location": "Mumbai",
+    "urgency": "low",
+    "deadline": null,
+    "input_text": "Order cement for Mumbai"
+  },
+  {
+    "material_name": "cement",
+    "quantity": 300.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": "Mumbia-East",
+    "urgency": "high",
+    "deadline": "2026-01-02",
+    "input_text": "Need 300 baggs of cemeent for Mumbia-East urgntly in 10 dayz"
+  },
+  {
+    "material_name": "50mm steel bars",
+    "quantity": 150.0,
+    "unit": "units",
+    "project_name": "Projekt Phonix",
+    "location": null,
+    "urgency": "medium",
+    "deadline": "2026-02-25",
+    "input_text": "Ordr 50mm stel barrs, 150 unts for Projekt Phonix, requird before 25th Feburary"
+  },
+  {
+    "material_name": "cement",
+    "quantity": 200.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": "Mumbai site",
+    "urgency": "low",
+    "deadline": null,
+    "input_text": "Need 100 bags no wait make it 200 bags of cement for Mumbai site"
+  },
+  {
+    "material_name": "steel",
+    "quantity": 500.0,
+    "unit": "units",
+    "project_name": null,
+    "location": null,
+    "urgency": "high",
+    "deadline": "2026-06-23",
+    "input_text": "Order urgently but deadline is in 6 months - 500 units of steel"
+  },
+  {
+    "material_name": "materials",
+    "quantity": null,
+    "unit": null,
+    "project_name": null,
+    "location": null,
+    "urgency": "low",
+    "deadline": null,
+    "input_text": "Need some materials for the project"
+  },
+  {
+    "material_name": "construction supplies",
+    "quantity": null,
+    "unit": null,
+    "project_name": null,
+    "location": null,
+    "urgency": "medium",
+    "deadline": null,
+    "input_text": "Order construction supplies soon"
+  },
+  {
+    "material_name": "steel",
+    "quantity": 2.5,
+    "unit": "tons",
+    "project_name": "bridge construction",
+    "location": null,
+    "urgency": "low",
+    "deadline": null,
+    "input_text": "Get 2.5 tons of steel for the bridge construction"
+  },
+  {
+    "material_name": "cement",
+    "quantity": 36.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": null,
+    "urgency": "low",
+    "deadline": null,
+    "input_text": "Order 3 dozen bags of cement for small renovation"
+  },
+  {
+    "material_name": "cement",
+    "quantity": 200.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": null,
+    "urgency": "medium",
+    "deadline": "2025-12-28",
+    "input_text": "Need 200 bags of cement by end of this week"
+  },
+  {
+    "material_name": "materials",
+    "quantity": null,
+    "unit": null,
+    "project_name": null,
+    "location": null,
+    "urgency": "medium",
+    "deadline": null,
+    "input_text": "Get materials before the monsoon season"
+  },
+  {
+    "material_name": "cement",
+    "quantity": 500.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": "Mumbai",
+    "urgency": "high",
+    "deadline": null,
+    "input_text": "Zarurat hai 500 bags cement Mumbai ke liye jaldi"
+  },
+  {
+    "material_name": "cement",
+    "quantity": 200.0,
+    "unit": "bags",
+    "project_name": null,
+    "location": "Delhi",
+    "urgency": "high",
+    "deadline": null,
+    "input_text": "Need 200 बोरी cement for Delhi site urgently"
+  }
+]

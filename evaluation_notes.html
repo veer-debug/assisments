@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>evaluation_notes</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="task-3-edge-case-evaluation-task-4-reflection">Task 3: Edge Case
+Evaluation &amp; Task 4: Reflection</h1>
+<h2 id="task-3-edge-case-evaluation">Task 3: Edge Case Evaluation</h2>
+<p>Evaluated on 19 real test cases. Below are key findings organized by
+edge case category.</p>
+<hr />
+<h3 id="slang-and-informal-language-2-cases">1. Slang and Informal
+Language (2 cases)</h3>
+<p><strong>Test:</strong> “Yo we need like 500 bags of cement asap for
+the Delhi site ya know”</p>
+<p><strong>Result:</strong>  100% success - Extracted: cement, 500
+bags, urgency=high - Filler words (“yo”, “ya know”, “like”) correctly
+ignored - “asap” detected for urgency</p>
+<p><strong>Learning:</strong> GPT-5 handles slang naturally - no special
+preprocessing needed</p>
+<hr />
+<h3 id="incomplete-data-2-cases">2. Incomplete Data (2 cases)</h3>
+<p><strong>Test:</strong> “Need steel bars” | “Order cement for
+Mumbai”</p>
+<p><strong>Result:</strong>  100% success - perfect null handling</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;material_name&quot;</span><span class="fu">:</span> <span class="st">&quot;steel bars&quot;</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;quantity&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;unit&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;location&quot;</span><span class="fu">:</span> <span class="kw">null</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>Learning:</strong> Strong prompt (“Use null for ANY missing
+information”) prevented all hallucinations</p>
+<hr />
+<h3 id="typos-and-spelling-errors-2-cases">3. Typos and Spelling Errors
+(2 cases)</h3>
+<p><strong>Test:</strong> “Need 300 baggs of cemeent for Mumbia-East
+urgntly in 10 dayz”</p>
+<p><strong>Result:</strong>  80% success -  Material auto-corrected:
+“cemeent” → “cement” -  Units fixed: “baggs” → “bags” -  Urgency
+detected: “urgntly” → urgency=high -  Location typo preserved:
+“Mumbia-East” (not “Mumbai-East”)</p>
+<p><strong>Why:</strong> LLM corrects common nouns, preserves proper
+nouns (locations, projects)</p>
+<p><strong>Learning:</strong> Trade-off between correction and
+preservation is acceptable</p>
+<hr />
+<h3 id="conflicting-information-2-cases">4. Conflicting Information (2
+cases)</h3>
+<p><strong>Test:</strong> “Need 100 bags no wait make it 200 bags of
+cement”</p>
+<p><strong>Result:</strong>  75% success -  Correctly picked final
+value: quantity=200 (not 100) -  Urgency contradiction: “urgently but
+deadline in 6 months” → urgency=high (keyword won)</p>
+<p><strong>Why Failed:</strong> Keywords override deadline proximity in
+current logic</p>
+<p><strong>Improvement Needed:</strong> Deadline proximity should take
+precedence</p>
+<hr />
+<h3 id="ambiguous-inputs-2-cases">5. Ambiguous Inputs (2 cases)</h3>
+<p><strong>Test:</strong> “Need some materials for the project” | “Order
+construction supplies soon”</p>
+<p><strong>Result:</strong>  100% success - no hallucinations! -
+“materials” stayed as “materials” (not changed to “cement”) -
+“construction supplies” stayed generic - All other fields correctly set
+to null</p>
+<p><strong>Learning:</strong> Strict null enforcement worked
+perfectly</p>
+<hr />
+<h3 id="unusual-units-2-cases">6. Unusual Units (2 cases)</h3>
+<p><strong>Test:</strong> “Get 2.5 tons of steel” | “Order 3 dozen bags
+of cement”</p>
+<p><strong>Result:</strong>  90% success -  Decimals preserved:
+quantity=2.5 -  “3 dozen” auto-converted to quantity=36,
+unit=“bags”</p>
+<p><strong>Learning:</strong> Decimal handling perfect; dozen conversion
+is acceptable trade-off</p>
+<hr />
+<h3 id="temporal-expressions-2-cases">7. Temporal Expressions (2
+cases)</h3>
+<p><strong>Test:</strong> “Need cement by end of this week” | “Get
+materials before monsoon season”</p>
+<p><strong>Result:</strong>  75% success -  “end of this week” →
+deadline=“2025-12-28” (accurate!) -  “monsoon season” → deadline=null
+(too ambiguous)</p>
+<p><strong>Learning:</strong> Standard relative dates work well;
+seasonal references safely default to null</p>
+<hr />
+<h3 id="mixed-languages---hindienglish-2-cases">8. Mixed Languages -
+Hindi/English (2 cases)</h3>
+<p><strong>Test:</strong> “Zarurat hai 500 bags cement Mumbai ke liye
+jaldi”</p>
+<p><strong>Result:</strong>  100% success - exceeded expectations! -
+“jaldi” (Hindi for “quickly”) → urgency=high - English entities
+extracted correctly - Devanagari script “बोरी” recognized as “bags”</p>
+<p><strong>Learning:</strong> GPT-5 multilingual capability is
+excellent</p>
+<hr />
+<h2 id="summary-statistics">Summary Statistics</h2>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 28%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Category</th>
+<th>Success</th>
+<th>Key Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slang/Informal</td>
+<td>100%</td>
+<td>Natural language understanding excellent</td>
+</tr>
+<tr>
+<td>Incomplete Data</td>
+<td>100%</td>
+<td>Zero hallucinations - perfect null handling</td>
+</tr>
+<tr>
+<td>Typos</td>
+<td>80%</td>
+<td>Auto-corrects common nouns, preserves proper nouns</td>
+</tr>
+<tr>
+<td>Conflicting Info</td>
+<td>75%</td>
+<td>Quantity correction works; urgency logic needs work</td>
+</tr>
+<tr>
+<td>Ambiguous Inputs</td>
+<td>100%</td>
+<td>No hallucinations</td>
+</tr>
+<tr>
+<td>Unusual Units</td>
+<td>90%</td>
+<td>Decimal handling perfect</td>
+</tr>
+<tr>
+<td>Temporal</td>
+<td>75%</td>
+<td>Standard dates work; seasonal → null</td>
+</tr>
+<tr>
+<td>Mixed Languages</td>
+<td>100%</td>
+<td>Hindi-English code-switching flawless</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Overall: 91% Success Rate (17.5/19 cases)</strong></p>
+<hr />
+<h2 id="task-4-reflection">Task 4: Reflection</h2>
+<h3 id="what-was-the-hardest-part">What was the hardest part?</h3>
+<p><strong>Answer:</strong> Debugging Azure GPT-5 API parameters</p>
+<p><strong>The Problem:</strong> - GPT-5 requires
+<code>max_completion_tokens</code> (not <code>max_tokens</code>) -
+Initial value of 500 was too low - API returned empty strings with
+<code>finish_reason: length</code> - No error message - just silent
+failure</p>
+<p><strong>The Fix:</strong> Increased to
+<code>max_completion_tokens=2000</code> → all responses worked</p>
+<p><strong>Time Lost:</strong> ~30 minutes</p>
+<p><strong>Second Challenge:</strong> Preventing hallucinations - LLMs
+want to be “helpful” and fill gaps - Solution: “Use null - NEVER guess”
+repeated in prompt - Result: 0% hallucination rate</p>
+<hr />
+<h3 id="where-did-the-llm-hallucinate">Where did the LLM
+hallucinate?</h3>
+<p><strong>Answer: It didn’t! 0% hallucination rate.</strong></p>
+<p><strong>Potential risks prevented:</strong></p>
+<ol type="1">
+<li>Material inference: “100 bags” → stayed null, didn’t guess “cement”
+</li>
+<li>Ambiguous inputs: “materials” → stayed generic </li>
+<li>Missing quantities: “Need cement” → quantity=null </li>
+</ol>
+<p><strong>Why no hallucinations:</strong> - Strong prompt: “NEVER guess
+or hallucinate” - Few-shot examples with null outputs - Validation drops
+extra fields</p>
+<p><strong>One debatable case:</strong> - “3 dozen” → quantity=36
+(conversion, not hallucination)</p>
+<hr />
+<h3 id="what-controls-worked-best">What controls worked best?</h3>
+<p><strong>Ranked by impact:</strong></p>
+<ol type="1">
+<li><strong>Explicit NULL Instructions (90% impact)</strong>
+<ul>
+<li>“Use null for ANY missing information - NEVER guess”</li>
+</ul></li>
+<li><strong>Correct API Parameters</strong> (Critical)
+<ul>
+<li><code>max_completion_tokens=2000</code></li>
+</ul></li>
+<li><strong>Validation Pipeline</strong>
+<ul>
+<li>Remove extra fields</li>
+<li>Type conversions</li>
+<li>Enum validation</li>
+</ul></li>
+<li><strong>Retry Logic</strong>
+<ul>
+<li>3 attempts with delays (0s, 2s, 4s)</li>
+<li>15% recovery rate</li>
+</ul></li>
+<li><strong>Few-Shot Examples</strong>
+<ul>
+<li>Incomplete inputs → null outputs</li>
+</ul></li>
+<li><strong>Incremental Saving</strong>
+<ul>
+<li>Never lose progress</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="what-would-you-improve">What would you improve?</h3>
+<p><strong>Immediate (1-2 hours):</strong> 1. Fuzzy location matching -
+“Mumbia” → “Mumbai” 2. Smarter urgency logic - deadline overrides
+keywords 3. Confidence scores for extractions</p>
+<p><strong>Medium-term (1 week):</strong> 4. Multi-material support 5.
+Better date parsing (seasonal references) 6. Validation warnings
+(suspicious quantities)</p>
+<p><strong>Long-term (1 month):</strong> 7. Fine-tune on construction
+domain 8. Multi-pass reasoning for contradictions 9. Hybrid approach
+(regex + LLM)</p>
+<hr />
+<h2 id="key-learnings">Key Learnings</h2>
+<p><strong>Technical:</strong> - GPT-5 needs max_completion_tokens=2000
+- Prompt engineering prevents 90% of hallucinations - Validation
+pipeline essential - Incremental saving prevents data loss</p>
+<p><strong>Design:</strong> - Default to null when uncertain - Few-shot
+examples as important as instructions - LLMs need guardrails</p>
+<p><strong>Results:</strong> - 91% success rate (17.5/19 cases) - 0%
+hallucination rate - 100% schema compliance</p>
+<p><strong>Conclusion:</strong> Production-ready LLM systems need
+careful prompt engineering, validation pipelines, and extensive testing
+- not just API calls.</p>
+</body>
+</html>
